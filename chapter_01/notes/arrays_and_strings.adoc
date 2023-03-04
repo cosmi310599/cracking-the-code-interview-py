@@ -1,0 +1,62 @@
+= Arrays and strings 
+
+== Hash tables
+
+A hash table in Python is a data structure used to store and retrieve values based on an associated key for highly efficient lookup. In a hash table, the key is used to calculate a location within the hash table, where the corresponding value is stored.
+
+NOTE: hash tables are implementet using the **dict class**, therefore, in Python the built-in `dict` data type is an implementation of a hash table (is unordered and mutable).
+
+
+== Linked list
+
+Data structure commonly used to store a collection of elements. Consist of a sequence of node, where each node contains an elemnt of data and a refernce (or pointer) to the next node in the sequence. 
+The first node in the sequence is called the head of the linked list and the last node is called the tail.
+
+A linked list can be either singly linked, doubly linked and circular linked, the main difference between them is how the nodes in the list are connected to each other.
+
+.Signly linked
+Where each node has a reference to the next node and the last one has a reference to `None` indicating the end of the list.
+
+image:images/Singly-Linked-List1.png[]
+
+IMPORTANT: Singly linked lists are not able to be tranversed backwards.
+
+.Doubly linked
+Where each node has a reference to both the next and previous nodes. This allows *bidirectional tranversal of the list*.
+
+image:images/Doubly-Linked-List.png[]
+
+IMPORTANT: in a doubly linked list each node has *two pointers*: one that points to the next noode and one that points to the previous. The first node in the list has a `None` pointer for the previous node, and the last node in the list has a `None`` pointer for the next node.
+
+.Circular linked
+Where the last node in the list has a reference to the first node, forming a circle, this menas that the list can be traversed continuosly without encounting a `None` reference.
+
+NOTE: Circular linked lists can be either singly linked or doubly linked.
+
+image:images/Circular-Linked-List.png[]
+
+
+
+
+Code example with implementation of all the three types:
+
+
+== ArrayList & Resizable Arrays
+
+In Python, there is no built-in data structure called an "array list". However, Python does provide a built-in datastructure called a list, which can be used to store a collection of items of different data types.
+
+Lists are similar to arrays in other programming languages, but with some important differences. One key differenceis that lists can store items of different data types, whereas arrays typically store items of the same data type.
+
+Another difference is that lists in Python are dynamic, meaning that they can grow or shrink in size as needed, whereas arrays in some other programming languages have a fixed size.
+
+NOTE: arrays and lists in Python are dynamically resizable.
+
+
+== String builder
+
+In python there is no build-in class called "StringBuilder", however, Python provides a built-in class called `str` which is used to reperesent strings of characters. 
+
+In some other programming languages, like Java or C#, a "StringBuilder" class is provided as a more efficient way to build or manipulate strings than using the standard string concatenation operator (+). A StringBuilder allows you to append multiple strings together without creating a new string object for each intermediate result.
+
+NOTE: In Python, however, you can achieve similar functionality using the string concatenation operator (+), or by using the join() method on a list of strings.
+
