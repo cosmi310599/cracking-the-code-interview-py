@@ -1,0 +1,159 @@
+= Bitwise operators
+
+Python bitwise operations are operations that manipulate the bits of binary numbers. These operations are performed using the bitwise operators: & (AND), | (OR), ^ (XOR), ~ (NOT), << (left shift), and >> (right shift).
+
+Here's a brief description of each operator:
+
+- Bitwise AND (&): Performs a logical AND operation between the binary digits of two integers, producing an integer with 1 bits only in positions where both input integers have 1 bits.
+
+- Bitwise OR (|): Performs a logical OR operation between the binary digits of two integers, producing an integer with 1 bits in positions where at least one of the input integers has a 1 bit.
+
+- Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation between the binary digits of two integers, producing an integer with 1 bits in positions where the input integers have different bit values.
+
+- Bitwise NOT (~): Performs a logical NOT operation on the binary digits of an integer, producing an integer with inverted bits (i.e., 0 bits become 1 bits and vice versa).
+
+- Bitwise left shift (<<): Shifts the binary digits of an integer to the left by a specified number of places, effectively multiplying the integer by a power of two.
+
+- Bitwise right shift (>>): Shifts the binary digits of an integer to the right by a specified number of places, effectively dividing the integer by a power of two.
+
+
+Example of how to use bitwise operators in Python:
+
+[source, python]
+
+----
+x = 0b1010
+y = 0b1100
+
+# Bitwise AND
+print(bin(x & y))  # Output: 0b1000
+
+# Bitwise OR
+print(bin(x | y))  # Output: 0b1110
+
+# Bitwise XOR
+print(bin(x ^ y))  # Output: 0b0110
+
+# Bitwise NOT
+print(bin(~x))     # Output: -0b1011 (note that the leading 1 indicates a negative number)
+
+# Left shift
+print(bin(x << 2)) # Output: 0b101000
+
+# Right shift
+print(bin(y >> 2)) # Output: 0b0011
+----
+
+
+== Bitwise AND and left shift operation (example)
+
+[source, python]
+----
+# Bitwise AND operator
+a = 0b11010101
+b = 0b00111011
+
+c = a & b
+print(bin(c)) # Output: 0b00010001
+
+# Bitwise left shift operator
+x = 0b1010
+y = x << 2
+print(bin(y)) # Output: 0b101000
+----
+
+[source, sql]
+----
+        x = 0b1010
+      ----------------
+      | 1 | 0 | 1 | 0 |
+      ----------------
+                    ^
+                    |
+             Shift left by 2
+                    |
+                    v
+      -------------------
+      | 1 | 0 | 1 | 0 | 0 |
+      -------------------
+----
+
+=== Graphical example by shifting to the left by 1
+
+[source, sql]
+----
+      x = 0b11010101   # original binary number
+    ----------------
+    | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
+    ----------------
+            <---- shift left by 1
+    --------------------
+    | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 |
+    --------------------
+    y = 0b110101010    # shifted binary number
+----
+
+
+In the above example, we use the bitwise AND operator & to perform a bitwise AND operation between the binary numbers a and b. The resulting value is stored in c, which is then printed in binary using the bin() function.
+
+We also use the bitwise left shift operator << to shift the binary number x two bits to the left. The resulting value is stored in y, which is also printed in binary using the bin() function.
+
+
+== Bitwise left shift operation
+
+n Python, 1 << val is a bitwise left shift operation, which shifts the binary digits of the integer 1 to the left by val places.
+
+For example, if val is 3, the binary representation of 1 is 0b0001 and after shifting the binary digits to the left by 3 places, we get 0b1000, which represents the decimal value 8.
+
+
+
+== Proupose of shifting binary digits in python 
+
+hifting binary digits in Python can be useful in certain situations where you need to perform bitwise operations on integers.
+
+Some common use cases of bitwise operations that involve shifting binary digits include:
+
+Creating or clearing a specific bit in an integer: Shifting binary digits to the left or right by a specific number of places allows you to set or clear a specific bit in an integer. For example, shifting the binary digits of 1 to the left by n places and then performing a bitwise OR operation with an integer will set the n-th bit of the integer to 1.
+
+Multiplying or dividing by powers of two: Shifting binary digits to the left or right by a specific number of places is equivalent to multiplying or dividing an integer by a power of two. This can be a more efficient way to perform multiplication or division in some cases.
+
+Extracting specific bits from an integer: Shifting binary digits to the right can be used to extract specific bits from an integer. For example, shifting an integer to the right by n places and then performing a bitwise AND operation with 1 will extract the n-th bit of the integer.
+
+Overall, shifting binary digits in Python is a useful technique for working with binary data and performing bitwise operations on integers.
+
+
+NOTE: ord() is a built-in function that returns the Unicode code point of a specified Unicode character. Thus, ord() can be used in combination with bitwise operators to manipulate the binary representation of integer values, including those obtained from the Unicode code point values of characters in a string.
+
+
+== Additional notes
+
+In binary representation, each digit (or bit) represents a power of two, starting from the rightmost bit with 2^0, which equals 1. Each subsequent bit represents a power of two that is double the previous bit. For example, let's consider the binary number 101:
+
+[source, sql]
+
+----
+  1    0    1
+2^2  2^1  2^0
+  4    0    1
+----
+
+In this binary number, the rightmost bit (the one on the far right) represents 2^0, which equals 1. The next bit to the left represents 2^1, which equals 2. The leftmost bit represents 2^2, which equals 4. To get the decimal value of this binary number, we add up the values represented by each bit that is set to 1. In this case, the first and the third bits are set to 1, representing 2^0 and 2^2, respectively. Therefore, the decimal value of 101 is 1*2^0 + 0*2^1 + 1*2^2 = 1 + 4 = 5.
+
+In general, for an n-bit binary number, the rightmost bit represents 2^0, the next bit to the left represents 2^1, the next one represents 2^2, and so on, up to the leftmost bit, which represents 2^(n-1). To get the decimal value of the binary number, we add up the values represented by each bit that is set to 1.
+
+ Shifting a binary number to the right by one position means moving all its bits one position to the right, effectively dividing the number by 2 (with integer division, rounding down). For example, shifting the binary number 1010 to the right by one position results in 0101, which is equivalent to decimal 5.
+
+Let's take the binary number 101 again, and shift it to the right by one position:
+
+
+[source, sql]
+----
+  1    0    1    (original binary number)
+2^2  2^1  2^0   (power of two for each bit)
+  0    1    0   (shifted binary number)
+----
+
+
+As you can see, we moved each bit one position to the right, which effectively divides the number by 2. The rightmost bit in the original binary number (1) was shifted out of the number and lost, and a 0 was shifted in from the left to fill the gap. The resulting binary number is 010, which is equivalent to decimal 2.
+
+In general, shifting a binary number to the right by n positions is equivalent to dividing the number by 2^n. Note that if the original number is an odd number, the division will round down to the nearest integer, as in the case of 101 shifted to the right by one position resulting in 010
